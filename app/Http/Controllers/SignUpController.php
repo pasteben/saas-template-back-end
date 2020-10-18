@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Models\Plan;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -42,10 +43,7 @@ class SignUpController extends Controller
             ->create($user->defaultPaymentMethod()->id);
             //->withCoupon('code')  //TODO Add coupon codes
 
-        // Login and "remember" the given user...
-        Auth::attempt([
-            'email' => $request['email'],
-            'password' => $request['password']
-        ]);
+        //Log the user in
+        return (new LoginController)->login($request);
     }
 }

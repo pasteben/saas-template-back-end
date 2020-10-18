@@ -23,9 +23,6 @@ Route::get('/', function () {
 /** @see LoginController::login() */
 Route::post('/login', [LoginController::class, 'login']);
 
-/** @see LogoutController::logout() */
-Route::post('/logout', [LogoutController::class, 'logout']);
-
 /** @see SignUpController::store() */
 Route::post('/sign-up', [SignUpController::class, 'store']);
 

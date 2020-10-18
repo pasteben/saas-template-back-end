@@ -11,7 +11,7 @@ class LogoutController extends Controller
 {
     public function logout()
     {
-        Auth::logout();
+        Auth::guard('web')->logout();
 
         return new Response('Success', 200);
     }
